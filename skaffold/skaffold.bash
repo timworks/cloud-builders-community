@@ -3,9 +3,9 @@ set -e
 
 # Invoke kubectl.bash to process CLOUDSDK_* environment variables and make a
 # call to the cluster to verify connectivity.
-/builder/kubectl.bash version
+# /builder/kubectl.bash version
 
-gcloud auth configure-docker
+gcloud auth configure-docker --quiet
 
 echo "Running: skaffold $@"
 skaffold "$@"
