@@ -1,6 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/skaffold:alpha', '.']
-
+  args: ['build', '--build-arg', 'KUSTOMIZE_VERSION=${_KUSTOMIZE_VERSION}', '--tag=gcr.io/$PROJECT_ID/skaffold:alpha', '.']
 images: ['gcr.io/$PROJECT_ID/skaffold:alpha']
 tags: ['cloud-builders-community']
+
+substitutions:
+  _KUSTOMIZE_VERSION: v4.0.5
